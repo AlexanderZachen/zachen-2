@@ -7,276 +7,77 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   :root {
-    --sage: #7a9e87;
-    --sage-light: #c5d9cc;
-    --sage-dark: #4a6b56;
-    --warm: #e8e0d5;
-    --warm-dark: #c9bfb0;
-    --cream: #f7f3ee;
-    --earth: #8b7355;
-    --text: #2c2c2a;
-    --text-muted: #6b6560;
-    --white: #fff;
+    --sage: #7a9e87; --sage-light: #c5d9cc; --sage-dark: #4a6b56;
+    --warm: #e8e0d5; --warm-dark: #c9bfb0; --cream: #f7f3ee;
+    --earth: #8b7355; --text: #2c2c2a; --text-muted: #6b6560; --white: #fff;
   }
-
   html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'Jost', sans-serif;
-    font-weight: 300;
-    color: var(--text);
-    background: var(--cream);
-    overflow-x: hidden;
-  }
-
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.2rem 3rem;
-    background: rgba(247,243,238,0.92);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--warm-dark);
-  }
-  .nav-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 300;
-    font-style: italic;
-    font-size: 1.3rem;
-    letter-spacing: 0.03em;
-    color: var(--sage-dark);
-    text-decoration: none;
-  }
+  body { font-family: 'Jost', sans-serif; font-weight: 300; color: var(--text); background: var(--cream); overflow-x: hidden; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.2rem 3rem; background: rgba(247,243,238,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--warm-dark); }
+  .nav-logo { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-style: italic; font-size: 1.3rem; letter-spacing: 0.03em; color: var(--sage-dark); text-decoration: none; }
   .nav-links { display: flex; gap: 2.5rem; list-style: none; }
-  .nav-links a {
-    font-size: 0.78rem;
-    font-weight: 400;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
+  .nav-links a { font-size: 0.78rem; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
   .nav-links a:hover { color: var(--sage-dark); }
-
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: 7rem 3rem 4rem;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: -10%; right: -5%;
-    width: 55%; height: 110%;
-    background: var(--sage-light);
-    opacity: 0.25;
-    border-radius: 50% 0 0 60%;
-  }
-  .hero-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-    position: relative;
-  }
-  .hero-text h1 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2.8rem, 6vw, 5rem);
-    font-weight: 300;
-    line-height: 1.1;
-    margin-bottom: 1.5rem;
-  }
+  .hero { min-height: 100vh; display: flex; align-items: center; padding: 7rem 3rem 4rem; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: -10%; right: -5%; width: 55%; height: 110%; background: var(--sage-light); opacity: 0.25; border-radius: 50% 0 0 60%; }
+  .hero-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; position: relative; }
+  .hero-text h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 300; line-height: 1.1; margin-bottom: 1.5rem; }
   .hero-text h1 em { font-style: italic; color: var(--sage-dark); }
-  .hero-text .subtitle {
-    font-size: 0.78rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--earth);
-    margin-bottom: 1rem;
-  }
-  .hero-text p {
-    font-size: 1.05rem;
-    line-height: 1.8;
-    color: var(--text-muted);
-    max-width: 420px;
-    margin-bottom: 2.5rem;
-  }
-  .hero-cta {
-    display: inline-block;
-    padding: 0.85rem 2.4rem;
-    background: var(--sage-dark);
-    color: var(--white);
-    text-decoration: none;
-    font-size: 0.78rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    font-weight: 400;
-    transition: background 0.2s, transform 0.2s;
-  }
+  .hero-text .subtitle { font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--earth); margin-bottom: 1rem; }
+  .hero-text p { font-size: 1.05rem; line-height: 1.8; color: var(--text-muted); max-width: 420px; margin-bottom: 2.5rem; }
+  .hero-cta { display: inline-block; padding: 0.85rem 2.4rem; background: var(--sage-dark); color: var(--white); text-decoration: none; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 400; transition: background 0.2s, transform 0.2s; }
   .hero-cta:hover { background: var(--sage); transform: translateY(-1px); }
   .hero-ornament { display: flex; align-items: center; justify-content: center; }
   .flower-svg { width: 340px; height: 340px; opacity: 0.6; }
-
   section { padding: 6rem 3rem; }
   .container { max-width: 1100px; margin: 0 auto; }
-  .section-label {
-    font-size: 0.72rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--earth);
-    margin-bottom: 0.8rem;
-  }
-  .section-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 300;
-    line-height: 1.2;
-    margin-bottom: 2rem;
-  }
-
+  .section-label { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--earth); margin-bottom: 0.8rem; }
+  .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; line-height: 1.2; margin-bottom: 2rem; }
   #ueber { background: var(--white); }
   .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
   .about-text p { font-size: 1rem; line-height: 1.85; color: var(--text-muted); margin-bottom: 1.4rem; }
-  .about-quote {
-    padding: 3rem;
-    background: var(--cream);
-    border-left: 3px solid var(--sage);
-  }
-  .about-quote blockquote {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.5rem;
-    font-style: italic;
-    font-weight: 300;
-    line-height: 1.5;
-    color: var(--sage-dark);
-  }
-
+  .about-quote { padding: 3rem; background: var(--cream); border-left: 3px solid var(--sage); }
+  .about-quote blockquote { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-style: italic; font-weight: 300; line-height: 1.5; color: var(--sage-dark); }
   #leistungen { background: var(--cream); }
   .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3rem; }
-  .service-card {
-    background: var(--white);
-    padding: 2.5rem;
-    border-top: 3px solid var(--sage-light);
-    transition: border-color 0.2s, transform 0.2s;
-  }
+  .service-card { background: var(--white); padding: 2.5rem; border-top: 3px solid var(--sage-light); transition: border-color 0.2s, transform 0.2s; }
   .service-card:hover { border-color: var(--sage-dark); transform: translateY(-3px); }
   .service-icon { width: 44px; height: 44px; margin-bottom: 1.5rem; color: var(--sage-dark); }
-  .service-card h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.5rem;
-    font-weight: 400;
-    margin-bottom: 1rem;
-  }
+  .service-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 400; margin-bottom: 1rem; }
   .service-card p { font-size: 0.93rem; line-height: 1.8; color: var(--text-muted); }
-
   #termine { background: var(--sage-dark); color: var(--white); }
   #termine .section-label { color: var(--sage-light); }
   #termine .section-title { color: var(--white); }
   .termine-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
   .dates-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8rem; margin-bottom: 2rem; }
-  .date-chip {
-    background: rgba(255,255,255,0.12);
-    border: 1px solid rgba(255,255,255,0.2);
-    padding: 0.6rem 0.8rem;
-    text-align: center;
-    font-size: 0.85rem;
-    font-weight: 400;
-    letter-spacing: 0.04em;
-    color: var(--white);
-  }
-  .termine-details {
-    background: rgba(255,255,255,0.08);
-    padding: 2rem;
-    border: 1px solid rgba(255,255,255,0.15);
-  }
-  .termine-details h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.3rem;
-    font-weight: 300;
-    font-style: italic;
-    color: var(--sage-light);
-    margin-bottom: 1rem;
-  }
+  .date-chip { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); padding: 0.6rem 0.8rem; text-align: center; font-size: 0.85rem; font-weight: 400; letter-spacing: 0.04em; color: var(--white); }
+  .termine-details { background: rgba(255,255,255,0.08); padding: 2rem; border: 1px solid rgba(255,255,255,0.15); }
+  .termine-details h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 300; font-style: italic; color: var(--sage-light); margin-bottom: 1rem; }
   .termine-details p { font-size: 0.9rem; line-height: 1.75; color: rgba(255,255,255,0.7); margin-bottom: 0.6rem; }
-  .heilsteine-box {
-    margin-top: 2rem;
-    padding: 1.5rem 2rem;
-    border: 1px solid rgba(255,255,255,0.2);
-    background: rgba(255,255,255,0.05);
-  }
-  .heilsteine-box h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.2rem;
-    font-style: italic;
-    color: var(--sage-light);
-    margin-bottom: 0.5rem;
-  }
+  .heilsteine-box { margin-top: 2rem; padding: 1.5rem 2rem; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); }
+  .heilsteine-box h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-style: italic; color: var(--sage-light); margin-bottom: 0.5rem; }
   .heilsteine-box p { font-size: 0.87rem; color: rgba(255,255,255,0.65); line-height: 1.7; }
-
   #kontakt { background: var(--warm); }
   .kontakt-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
   .kontakt-block { background: var(--white); padding: 2.5rem; margin-top: 2rem; }
-  .kontakt-block .kname {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.4rem;
-    font-weight: 400;
-    margin-bottom: 1.2rem;
-  }
+  .kontakt-block .kname { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 400; margin-bottom: 1.2rem; }
   .kontakt-line { display: flex; gap: 1rem; align-items: center; margin-bottom: 0.7rem; font-size: 0.93rem; color: var(--text-muted); }
   .kontakt-line svg { width: 16px; height: 16px; color: var(--sage-dark); flex-shrink: 0; }
   .kontakt-line a { color: var(--sage-dark); text-decoration: none; }
   .kontakt-line a:hover { text-decoration: underline; }
-  .kontakt-note {
-    margin-top: 4rem;
-    padding: 1.5rem;
-    background: var(--cream);
-    border-left: 3px solid var(--sage);
-    font-size: 0.88rem;
-    line-height: 1.7;
-    color: var(--text-muted);
-  }
-
-  footer {
-    background: var(--text);
-    color: rgba(255,255,255,0.5);
-    text-align: center;
-    padding: 2rem 3rem;
-    font-size: 0.78rem;
-    letter-spacing: 0.06em;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+  .kontakt-note { margin-top: 4rem; padding: 1.5rem; background: var(--cream); border-left: 3px solid var(--sage); font-size: 0.88rem; line-height: 1.7; color: var(--text-muted); }
+  footer { background: var(--text); color: rgba(255,255,255,0.5); padding: 2rem 3rem; font-size: 0.78rem; letter-spacing: 0.06em; display: flex; justify-content: space-between; align-items: center; }
   footer a { color: rgba(255,255,255,0.5); text-decoration: none; }
   footer a:hover { color: rgba(255,255,255,0.8); }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
   .hero-text { animation: fadeUp 0.9s ease both; }
   .hero-ornament { animation: fadeUp 0.9s ease 0.2s both; }
-
   @media (max-width: 860px) {
-    nav { padding: 1rem 1.5rem; }
-    .nav-links { gap: 1.5rem; }
-    section { padding: 4rem 1.5rem; }
-    .hero { padding: 6rem 1.5rem 3rem; }
+    nav { padding: 1rem 1.5rem; } .nav-links { gap: 1.5rem; }
+    section { padding: 4rem 1.5rem; } .hero { padding: 6rem 1.5rem 3rem; }
     .hero-inner, .about-grid, .services-grid, .termine-inner, .kontakt-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-    .hero-ornament { display: none; }
-    .dates-grid { grid-template-columns: repeat(4, 1fr); }
+    .hero-ornament { display: none; } .dates-grid { grid-template-columns: repeat(4, 1fr); }
     footer { flex-direction: column; gap: 0.5rem; }
   }
 </style>
@@ -298,7 +99,7 @@
     <div class="hero-text">
       <p class="subtitle">Heilpraktikerin &amp; Aufstellerin</p>
       <h1>Gesundheit in <em>Balance</em> von Körper, Geist und Seele</h1>
-      <p>Ganzheitliche Begleitung durch Familienaufstellungen, Homöopathie und Kinesiologie — im Raum Leitzkau und Dorst.</p>
+      <p>Ganzheitliche Begleitung durch Familienaufstellungen, Homöopathie und Kinesiologie — im Raum Leitzkau.</p>
       <a href="#kontakt" class="hero-cta">Termin anfragen</a>
     </div>
     <div class="hero-ornament">
@@ -339,9 +140,8 @@
     <p class="section-label">Meine Arbeit</p>
     <h2 class="section-title">Drei Wege zur Heilung</h2>
     <div class="services-grid">
-
       <div class="service-card">
-        <svg class="service-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <svg class="service-icon" viewBox="0 0 44 44" fill="none" aria-hidden="true">
           <circle cx="22" cy="10" r="5" stroke="currentColor" stroke-width="1.2"/>
           <circle cx="10" cy="32" r="5" stroke="currentColor" stroke-width="1.2"/>
           <circle cx="34" cy="32" r="5" stroke="currentColor" stroke-width="1.2"/>
@@ -352,9 +152,8 @@
         <h3>Familienaufstellungen</h3>
         <p>Eine kraftvolle Methode, um verborgene Dynamiken in Familien- und Beziehungssystemen aufzudecken. Durch das Aufstellen von Stellvertretern erhalten wir wertvolle Einsichten in bestehende Blockaden und können sie gezielt lösen.</p>
       </div>
-
       <div class="service-card">
-        <svg class="service-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <svg class="service-icon" viewBox="0 0 44 44" fill="none" aria-hidden="true">
           <circle cx="22" cy="22" r="12" stroke="currentColor" stroke-width="1.2"/>
           <circle cx="22" cy="22" r="6"  stroke="currentColor" stroke-width="1" opacity="0.5"/>
           <circle cx="22" cy="22" r="2"  fill="currentColor"/>
@@ -366,9 +165,8 @@
         <h3>Homöopathie</h3>
         <p>Eine sanfte und effektive Heilmethode, die auf dem Prinzip „Ähnliches wird mit Ähnlichem geheilt" basiert. Durch individuell ausgewählte homöopathische Mittel unterstütze ich Ihren Körper bei der Aktivierung seiner Selbstheilungskräfte.</p>
       </div>
-
       <div class="service-card">
-        <svg class="service-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <svg class="service-icon" viewBox="0 0 44 44" fill="none" aria-hidden="true">
           <path d="M8 36 L22 10 L36 36" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
           <path d="M13 28 L31 28" stroke="currentColor" stroke-width="1" opacity="0.5"/>
           <circle cx="22" cy="10" r="2" fill="currentColor" opacity="0.6"/>
@@ -376,7 +174,6 @@
         <h3>Kinesiologie</h3>
         <p>Eine ganzheitliche Methode, die den Körper als Biofeedback-System nutzt. Durch sanften Muskeltest erhalte ich Informationen über energetische Blockaden und Ungleichgewichte — die dann gezielt aufgelöst werden können.</p>
       </div>
-
     </div>
   </div>
 </section>
@@ -429,16 +226,6 @@
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M3 3.5c0 0 1 .5 1.5 2S5 8 4.5 8.5C5.5 10 6.5 11 8 12c.5-.5 1.5-1.5 3-1s2 1.5 2 1.5C13 13.5 11 15 9.5 14.5 7 14 4 11 2.5 8.5 1 6 2 3.5 3 3.5z"/></svg>
             <span id="kontakt-tel1"></span>
           </div>
-          <hr style="margin:1.5rem 0; border:none; border-top:1px solid #eee;">
-          <p class="kname" style="font-size:1.1rem;">Zweite Praxis</p>
-          <div class="kontakt-line">
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M8 1.5C5.5 1.5 3.5 3.5 3.5 6c0 3.5 4.5 8.5 4.5 8.5S12.5 9.5 12.5 6c0-2.5-2-4.5-4.5-4.5z"/><circle cx="8" cy="6" r="1.5"/></svg>
-            <span id="kontakt-adresse2"></span>
-          </div>
-          <div class="kontakt-line">
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M3 3.5c0 0 1 .5 1.5 2S5 8 4.5 8.5C5.5 10 6.5 11 8 12c.5-.5 1.5-1.5 3-1s2 1.5 2 1.5C13 13.5 11 15 9.5 14.5 7 14 4 11 2.5 8.5 1 6 2 3.5 3 3.5z"/></svg>
-            <span id="kontakt-tel2"></span>
-          </div>
         </div>
       </div>
       <div>
@@ -460,22 +247,18 @@
   fetch('/_data/inhalt.json')
     .then(r => r.json())
     .then(d => {
-      document.getElementById('ueber-titel').textContent   = d.ueber_titel   || '';
-      document.getElementById('ueber-text1').textContent   = d.ueber_text1   || '';
-      document.getElementById('ueber-text2').textContent   = d.ueber_text2   || '';
-      document.getElementById('zitat').textContent         = '„' + (d.zitat || '') + '"';
-      document.getElementById('termine-zeit').textContent  = d.termine_zeit  || '';
+      document.getElementById('ueber-titel').textContent = d.ueber_titel || '';
+      document.getElementById('ueber-text1').textContent = d.ueber_text1 || '';
+      document.getElementById('ueber-text2').textContent = d.ueber_text2 || '';
+      document.getElementById('zitat').textContent = '„' + (d.zitat || '') + '"';
+      document.getElementById('termine-zeit').textContent = d.termine_zeit || '';
       document.getElementById('termine-hinweis').textContent = d.termine_hinweis || '';
-      document.getElementById('kontakt-name').textContent  = d.kontakt_name  || '';
+      document.getElementById('kontakt-name').textContent = d.kontakt_name || '';
       document.getElementById('kontakt-adresse1').textContent = d.kontakt_adresse1 || '';
-      document.getElementById('kontakt-adresse2').textContent = d.kontakt_adresse2 || '';
-      document.getElementById('kontakt-tel1').textContent  = d.kontakt_tel1  || '';
-      document.getElementById('kontakt-tel2').textContent  = d.kontakt_tel2  || '';
-
+      document.getElementById('kontakt-tel1').textContent = d.kontakt_tel1 || '';
       const emailEl = document.getElementById('kontakt-email-link');
       emailEl.textContent = d.kontakt_email || '';
       emailEl.href = 'mailto:' + (d.kontakt_email || '');
-
       const grid = document.getElementById('dates-grid');
       (d.termine_liste || []).forEach(t => {
         const chip = document.createElement('div');
