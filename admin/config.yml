@@ -1,0 +1,73 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images"
+public_folder: "/images"
+
+collections:
+  - name: "einstellungen"
+    label: "Website-Einstellungen"
+    files:
+
+      - name: "inhalt"
+        label: "Alle Inhalte bearbeiten"
+        file: "_data/inhalt.json"
+        fields:
+
+          - label: "Über mich – Titel"
+            name: "ueber_titel"
+            widget: "string"
+
+          - label: "Über mich – Text 1"
+            name: "ueber_text1"
+            widget: "text"
+
+          - label: "Über mich – Text 2"
+            name: "ueber_text2"
+            widget: "text"
+
+          - label: "Zitat"
+            name: "zitat"
+            widget: "string"
+
+          - label: "Termine"
+            name: "termine_liste"
+            widget: "list"
+            label_singular: "Termin"
+            field:
+              label: "Datum (z.B. 06.12)"
+              name: "datum"
+              widget: "string"
+
+          - label: "Uhrzeit"
+            name: "termine_zeit"
+            widget: "string"
+
+          - label: "Hinweis-Text"
+            name: "termine_hinweis"
+            widget: "text"
+
+          - label: "Name"
+            name: "kontakt_name"
+            widget: "string"
+
+          - label: "Adresse Leitzkau"
+            name: "kontakt_adresse1"
+            widget: "string"
+
+          - label: "Telefon Leitzkau"
+            name: "kontakt_tel1"
+            widget: "string"
+
+          - label: "E-Mail"
+            name: "kontakt_email"
+            widget: "string"
+
+          - label: "Adresse Dorst"
+            name: "kontakt_adresse2"
+            widget: "string"
+
+          - label: "Telefon Dorst"
+            name: "kontakt_tel2"
+            widget: "string"
